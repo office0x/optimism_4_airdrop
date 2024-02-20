@@ -14,10 +14,11 @@ def read_wallets(file_path):
     return wallets
 
 def check_address(eligible_dict, address):
-    if address in eligible_dict:
-        return eligible_dict[address]
-    else:
-        return 0
+    address_lower = address.lower()
+    for key in eligible_dict:
+        if key.lower() == address_lower:
+            return eligible_dict[key]
+    return 0
 
 if __name__ == "__main__":
     # Step 1: Read eligible list and convert to dictionary
